@@ -1,0 +1,17 @@
+.container {
+  display: table;
+  width: 30em;
+  border-spacing: 10px;
+}
+
+.row {
+  display: table-row;
+}
+
+.row > div {
+  display: table-cell;
+}
+
+.row > div:nth-child(odd) {
+  font-weight: bold;
+}
