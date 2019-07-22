@@ -1,11 +1,11 @@
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
-import { RouterStateUrl } from '../models/root-url';
+import { RouterStateModel } from '../models/root-url';
 import { AuthenticationStoreState } from './authentication-store';
 import { AccountStoreState } from './account-store';
 
 
 export interface State {
-  router: RouterReducerState<RouterStateUrl>;
+  router: RouterReducerState<RouterStateModel>;
 }
 
 export interface RootState extends State {

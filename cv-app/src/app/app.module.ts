@@ -30,6 +30,7 @@ import { AccountService } from './data-providers/account.service';
 import { AccountComponent } from './containers/account/account.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GlobalApplicationEffects } from './root-store/effects';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     BrowserAnimationsModule,
     HttpClientModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([GlobalApplicationEffects]),
     StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule
   ],

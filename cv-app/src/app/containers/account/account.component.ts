@@ -8,7 +8,7 @@ import {
   AccountActions,
   RootSelectors
 } from '../../root-store';
-import { RouterStateUrl } from 'src/app/models/root-url';
+import { RouterStateModel } from 'src/app/models/root-url';
 
 @Component({
   selector: 'app-account',

@@ -10,16 +10,19 @@ const routes: Routes = [{ path: 'login', component: AuthenticationComponent },
 {
     path: 'landing',
     component: LandingComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { title: 'Landing Page' }
 },
 {
   path: 'account/:email',
   component: AccountComponent,
-  canActivate: [AuthGuard]
+  canActivate: [AuthGuard],
+  data: { title: 'Account Info' }
 },
 { path: '',
   redirectTo: '/login',
-  pathMatch: 'full'
+  pathMatch: 'full',
+  data: { title: 'Sign In' }
 }];
 
 @NgModule({

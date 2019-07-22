@@ -1,15 +1,16 @@
 import { Params, RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 
-export interface RouterStateUrl {
+export interface RouterStateModel {
   url: string;
   params: Params;
   queryParams: Params;
+  title?: string;
 }
 
 export class CustomRouterStateSerializer
-  implements RouterStateSerializer<RouterStateUrl> {
-  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
+  implements RouterStateSerializer<RouterStateModel> {
+  serialize(routerState: RouterStateSnapshot): RouterStateModel {
     const { url } = routerState;
     const queryParams = routerState.root.queryParams;
 
@@ -19,6 +20,7 @@ export class CustomRouterStateSerializer
     }
 
     const params = route.params;
-    return { url, params, queryParams };
+    const title = route.data['title'];
+    return { url, params, queryParams, title };
   }
 }
