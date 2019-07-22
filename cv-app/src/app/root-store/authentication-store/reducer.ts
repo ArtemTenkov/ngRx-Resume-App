@@ -28,6 +28,7 @@ export const loginReducerInitial = createReducer(
 
 export const validateLoginForm = updateGroup<ILoginForm>({
   email: validate(required, minLength(4)),
+  password: validate(required)
   // other updates...
 });
 

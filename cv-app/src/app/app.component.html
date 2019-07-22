@@ -1,20 +1,17 @@
+<div class="container">    
    <header>
-        <div style="color: #fff; cursor: pointer">
-          <h2>
-              เว็บไซต์ของฉัน
-          </h2>
-        </div>
+       <nav>
+          <ul class="site-nav">
+              <li><mat-list-item role="listitem"><a mat-button routerLink="/landing"  class="button-link">Main page</a></mat-list-item></li>
+                <li><mat-list-item role="listitem"><a mat-button routerLink="/account/user" class="button-link">Account info</a></mat-list-item></li>
+                <li class="nav-right"><mat-list-item role="listitem"> <app-logout></app-logout></mat-list-item></li>          
+            </ul>
+       </nav>
       </header>
-      <div class="container">
-          <mat-drawer-container class="example-container">
-              <mat-drawer mode="side" opened> <mat-list role="list">
-                  <mat-list-item role="listitem"><a mat-button routerLink="/landing"  class="button-link">Main page</a></mat-list-item>
-                  <mat-list-item role="listitem"><a mat-button routerLink="/account/user" class="button-link">Account info</a></mat-list-item>
-                  <mat-list-item role="listitem"> <app-logout></app-logout></mat-list-item>
-                </mat-list>
-
-              </mat-drawer>
-              <mat-drawer-content class="main-content"><router-outlet></router-outlet></mat-drawer-content>
-            </mat-drawer-container>
+      <mat-divider></mat-divider>
+     <main>
+        <router-outlet></router-outlet>
+     </main>   
+          
       </div>
 

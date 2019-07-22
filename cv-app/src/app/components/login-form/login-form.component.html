@@ -5,7 +5,8 @@
             <input matInput placeholder="Email"
             [ngrxFormControlState]="form?.controls['email']">
             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <mat-hint style="color:red" [hidden]="form.isPristine && !form.controls.email.errors.required">Email field is required</mat-hint>
+            <mat-hint style="color:red" 
+            [hidden]="form.isPristine || !form.controls.email.errors.required">Email field is required</mat-hint>
           </mat-form-field>
 <br />
           <mat-form-field appearance="outline">
@@ -13,7 +14,8 @@
               <input matInput placeholder="Password"
               [ngrxFormControlState]="form?.controls['password']">
               <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-              <mat-hint style="color:red" [hidden]="form.isPristine && !form.controls.password.errors.required">Password is required</mat-hint>
+              <mat-hint style="color:red" 
+              [hidden]="form.isPristine || !form.controls.password.errors.required">Password is required</mat-hint>
             </mat-form-field>
             <br />
             <button mat-raised-button color="primary" type="submit" [disabled]="!form.isValid">

@@ -1,4 +1,26 @@
 <h2>Account info:</h2>
-<div>UserName: <b>{{(account$ | async)?.userName}}</b></div>
-<div>Email: <b>{{(account$ | async)?.email}}</b></div>
-<div>About: <b>{{(account$ | async)?.about}}</b></div>
+<div class="flex">
+        
+    <div class="column-main tile">
+            <mat-card>
+                    <b> About:</b> {{(account$ | async)?.about}}
+            </mat-card>
+        
+    </div>
+    <div class="column-sidebar">                
+        <div class="tile">
+                <mat-card>
+                        <b>User Name:</b>  {{(account$ | async)?.userName}}   
+                </mat-card>        
+        </div>        
+        <div class="tile centered">
+                <mat-card>
+                        <b>Email:</b> {{(account$ | async)?.email}}
+                </mat-card>
+            </div>
+    </div>
+   
+</div>
+
+
+

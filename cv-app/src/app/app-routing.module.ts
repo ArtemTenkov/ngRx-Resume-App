@@ -6,7 +6,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { AccountComponent } from './containers/account/account.component';
 
 
-const routes: Routes = [{ path: 'login', component: AuthenticationComponent },
+const routes: Routes = [{ path: 'login', component: AuthenticationComponent,
+data: { title: 'Sign In' } },
 {
     path: 'landing',
     component: LandingComponent,
@@ -21,8 +22,7 @@ const routes: Routes = [{ path: 'login', component: AuthenticationComponent },
 },
 { path: '',
   redirectTo: '/login',
-  pathMatch: 'full',
-  data: { title: 'Sign In' }
+  pathMatch: 'full'
 }];
 
 @NgModule({
