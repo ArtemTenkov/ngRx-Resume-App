@@ -14,8 +14,7 @@ import { ofType } from '@ngrx/effects';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class AuthenticationComponent implements OnInit {
 

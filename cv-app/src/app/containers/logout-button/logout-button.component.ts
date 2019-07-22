@@ -4,8 +4,7 @@ import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-logout',
-  template: '<a mat-button (click)="logout()">Logout</a>',
-  styleUrls: ['./logout-button.component.scss']
+  template: '<a mat-button (click)="logout()">Logout</a>'
 })
 export class LogoutButtonComponent implements OnInit {
 

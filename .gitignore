@@ -1,0 +1,5 @@
+cv-app/node_modules/
+obj/
+bin/
+*.user
+*.cache
