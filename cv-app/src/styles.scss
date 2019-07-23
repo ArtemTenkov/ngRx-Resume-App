@@ -18,6 +18,10 @@ body {
 .container {
     max-width: 1080px;
     margin: 0 auto;
+    min-height: 95%;
+    display:flex;
+    flex-direction: column;
+    text-overflow: hidden;
 }
 
 .site-nav {
@@ -62,5 +66,39 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
 }   
+
+.column-sidebar > .tile + .tile {
+  margin-top:3em;
+}
+
+footer {
+ width: 100%;
+  margin-top: auto;
+  flex-grow: 0;
+}
+
+header {
+  flex-grow: 0;
+}
+
+.column-main.tile > .mat-card {
+  height: 70vh;
+}
+
+footer > i {
+  float: right;
+  margin-right: 5em;
+}
+
+main {
+  flex-grow: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 0.5em;
+}

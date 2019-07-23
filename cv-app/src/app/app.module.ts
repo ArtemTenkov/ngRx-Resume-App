@@ -31,6 +31,7 @@ import { AccountComponent } from './containers/account/account.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalApplicationEffects } from './root-store/effects';
+import { MessagesComponent } from './containers/messages/messages.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { GlobalApplicationEffects } from './root-store/effects';
     LoginFormComponent,
     LogoutButtonComponent,
     LandingComponent,
-    AccountComponent
+    AccountComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ import { GlobalApplicationEffects } from './root-store/effects';
     StoreRouterConnectingModule
   ],
   providers: [
-    { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }, AccountService,
+    { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

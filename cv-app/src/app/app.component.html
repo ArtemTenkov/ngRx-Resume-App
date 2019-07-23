@@ -1,17 +1,25 @@
 <div class="container">    
-   <header>
+      <header>
        <nav>
           <ul class="site-nav">
               <li><mat-list-item role="listitem"><a mat-button routerLink="/landing"  class="button-link">Main page</a></mat-list-item></li>
                 <li><mat-list-item role="listitem"><a mat-button routerLink="/account/user" class="button-link">Account info</a></mat-list-item></li>
+                <li><mat-list-item role="listitem"><a mat-button routerLink="/messages" class="button-link">Messages</a></mat-list-item></li>
                 <li class="nav-right"><mat-list-item role="listitem"> <app-logout></app-logout></mat-list-item></li>          
             </ul>
        </nav>
+       <mat-divider></mat-divider>
       </header>
-      <mat-divider></mat-divider>
+      
      <main>
         <router-outlet></router-outlet>
-     </main>   
-          
+     </main>       
+     
+     <footer>        
+         <mat-divider></mat-divider>
+         <br />
+        <i>Artem Tenkov 2019</i>
+     </footer>
       </div>
+
 

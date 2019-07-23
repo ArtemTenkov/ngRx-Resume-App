@@ -4,6 +4,7 @@ import { AuthenticationComponent } from './containers/login/authentication.compo
 import { AuthGuard } from './framework/auth.guard';
 import { LandingComponent } from './components/landing/landing.component';
 import { AccountComponent } from './containers/account/account.component';
+import { MessagesComponent } from './containers/messages/messages.component';
 
 
 const routes: Routes = [{ path: 'login', component: AuthenticationComponent,
@@ -13,6 +14,12 @@ data: { title: 'Sign In' } },
     component: LandingComponent,
     canActivate: [AuthGuard],
     data: { title: 'Landing Page' }
+},
+{
+  path: 'messages',
+  component: MessagesComponent,
+  canActivate: [AuthGuard],
+  data: { title: 'Inbox' }
 },
 {
   path: 'account/:email',

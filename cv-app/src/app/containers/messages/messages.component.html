@@ -1,0 +1,21 @@
+<h2>Messages</h2>
+Inbox: {{(messages$ | async).length}}
+<br />
+<div class="grid">
+        <ng-template ngFor let-message [ngForOf]="messages$ | async" let-i="index" >
+                <mat-card>
+                        <mat-card-header>                                
+                                <mat-card-title>{{message.sendersName}}</mat-card-title>
+                                <mat-card-subtitle>{{message.date  | date:'medium'}}</mat-card-subtitle>
+                              </mat-card-header>    
+                              <mat-card-content>
+                                   <i>{{message.messageText}}</i> 
+                              </mat-card-content>    
+                              <mat-card-actions>
+                                    <button mat-button>Reply</button>
+                                    <button mat-button>Block Contact</button>
+                                  </mat-card-actions>                
+                </mat-card>
+            </ng-template>
+</div>
+

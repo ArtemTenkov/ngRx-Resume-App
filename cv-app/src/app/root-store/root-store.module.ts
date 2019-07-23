@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AccountStoreModule } from './account-store/account-store.module';
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
+import { MessagesStoreModule } from './messages-store/messages-store.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
     StoreModule.forFeature('router', routerReducer),
     StoreModule.forRoot({}),
     StoreRouterConnectingModule.forRoot(),
-    AccountStoreModule
+    AccountStoreModule,
+    MessagesStoreModule
   ]
 })
 export class RootStoreModule { }
