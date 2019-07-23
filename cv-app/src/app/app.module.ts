@@ -32,6 +32,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalApplicationEffects } from './root-store/effects';
 import { MessagesComponent } from './containers/messages/messages.component';
+import { MessageComponent } from './components/message/message.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MessagesComponent } from './containers/messages/messages.component';
     LogoutButtonComponent,
     LandingComponent,
     AccountComponent,
-    MessagesComponent
+    MessagesComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

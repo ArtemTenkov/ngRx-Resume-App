@@ -5,6 +5,7 @@ import * as messageActions from './actions';
 const messagesReducer = createReducer(
     initialMessageState,
     on(messageActions.GetMessagesSuccessAction, (state, { messages } ) => messageAdapter.addAll(messages, state)),
+    on(messageActions.MarkMessageReadAction, (state, { message } ) => messageAdapter.updateOne(message, state)),
     on(messageActions.GetMessagesFailureAction, ((state, { error } ) => ({
         ...state,
         error
