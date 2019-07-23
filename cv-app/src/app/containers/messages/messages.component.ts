@@ -17,7 +17,7 @@ import {
 export class MessagesComponent implements OnInit {
   public messages$: Observable<Message[]>;
   constructor(private store$: Store<RootStoreState.RootState>) {
-    this.store$.dispatch(MessagesActions.GetMessagesRequestAction({ userId: 'user'}))
+    this.store$.dispatch(MessagesActions.GetMessagesRequestAction({ userId: 'user'}));
   }
 
   ngOnInit() {
