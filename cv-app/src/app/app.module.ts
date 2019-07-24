@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,14 +26,19 @@ import { LogoutButtonComponent } from './containers/logout-button/logout-button.
 import { LandingComponent } from './components/landing/landing.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './data-providers/token.interceptor';
-import { AccountService } from './data-providers/account.service';
 import { AccountComponent } from './containers/account/account.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalApplicationEffects } from './root-store/effects';
 import { MessagesComponent } from './containers/messages/messages.component';
 import { MessageComponent } from './components/message/message.component';
+import { AppConfigService } from './data-providers/app-config.service';
 
+const appInitializerFn = (appConfig: AppConfigService) => {
+  return () => {
+    return appConfig.loadAppConfig();
+  };
+};
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -68,7 +73,13 @@ import { MessageComponent } from './components/message/message.component';
     StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule
   ],
-  providers: [
+  providers: [ AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFn,
+      multi: true,
+      deps: [AppConfigService]
+    },
     { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
     {
       provide: HTTP_INTERCEPTORS,

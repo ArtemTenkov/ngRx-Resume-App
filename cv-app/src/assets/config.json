@@ -1,0 +1,7 @@
+{
+    "appTitle": "CV App",
+    "apiUrl": "https://localhost:44341/api/",
+    "appSetting": {
+        "someyKey": "someValue"
+    }
+}
