@@ -1,25 +1,57 @@
-<div class="container">    
-      <header>
-       <nav>
-          <ul class="site-nav">
-              <li><mat-list-item role="listitem"><a mat-button routerLink="/landing"  class="button-link">Main page</a></mat-list-item></li>
-                <li><mat-list-item role="listitem"><a mat-button routerLink="/account/user" class="button-link">Account info</a></mat-list-item></li>
-                <li><mat-list-item role="listitem"><a mat-button routerLink="/messages" class="button-link">Messages</a></mat-list-item></li>
-                <li class="nav-right"><mat-list-item role="listitem"> <app-logout></app-logout></mat-list-item></li>          
-            </ul>
-       </nav>
-       <mat-divider></mat-divider>
-      </header>
-      
-     <main>
-        <router-outlet></router-outlet>
-     </main>       
-     
-     <footer>        
+<div class="container">
+  <header>
+    <nav>
+      <ul class="site-nav">
+        <li><h2>CV</h2></li>
+        <li class="nav-left"> 
+            <input placeholder="  Search" value="" style="line-height:1.7;border-radius: .3em;border-style: solid;
+            border-width: 0.07em;padding-left: 1em;
+            border-color: rgba(0,0,0,.12);">
+         </li>
+        <li>
+          <mat-list-item role="listitem"
+            ><a mat-button routerLink="/landing" class="button-link"
+              >Main page</a
+            ></mat-list-item
+          >
+        </li>
+        <li>
+          <mat-list-item role="listitem"
+            ><a mat-button routerLink="/account/user" class="button-link"
+              >Account info</a
+            ></mat-list-item
+          >
+        </li>
+        <li>
+          <mat-list-item role="listitem"
+            ><a mat-button routerLink="/messages" class="button-link"
+              >Messages</a
+            ></mat-list-item
+          >
+        </li>
+        <li>
+          <mat-divider
+            [vertical]="true"
+            class="menu-divider-vertical nav-right"
+          ></mat-divider>
+        </li>
+        <li>
+          <mat-list-item role="listitem">
+            <app-logout></app-logout
+          ></mat-list-item>
+        </li>
+      </ul>
+    </nav>
+    <mat-divider></mat-divider>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>        
          <mat-divider></mat-divider>
          <br />
         <i>Artem Tenkov 2019</i>
      </footer>
-      </div>
-
-
+</div>

@@ -24,15 +24,17 @@ body {
     text-overflow: hidden;
 }
 
-.site-nav {
+.site-nav {    
     display: flex;
     padding-right: .5em;        
     padding-left: .5em;
     list-style-type: none;
+    justify-content: flex-end;
 }
 
 .site-nav > li {
   margin-top: 0;
+  line-height: 0;
 }
 
 .site-nav > li a, .site-nav .mat-button-wrapper {  
@@ -41,8 +43,9 @@ body {
 
 
 
-.site-nav > .nav-right {
-  margin-left: auto;
+.site-nav > .nav-left{
+  margin-right: auto;
+  padding-top: .5em
 }
 
 .tile {
@@ -100,9 +103,21 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 0.5em;
+  grid-gap: 1.5em;
 }
 
 .message-unread {
   background-color: whitesmoke;
+}
+
+.menu-divider-vertical {
+  height: 100%;
+}
+
+.nav-left h2 {
+  line-height: 0;
+}
+
+.site-nav > li:nth-child(1) {
+  margin-right: 2em;
 }
