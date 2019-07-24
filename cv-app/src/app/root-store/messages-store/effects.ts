@@ -3,7 +3,6 @@ import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of as observableOf } from 'rxjs';
 import * as messageActions from './actions';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { Message } from 'src/app/models/message';
 
 export class MessagesStoreEffect {
     constructor(private dataService: MessagesService, private $actions: Actions) { }
