@@ -33,6 +33,7 @@ import { GlobalApplicationEffects } from './root-store/effects';
 import { MessagesComponent } from './containers/messages/messages.component';
 import { MessageComponent } from './components/message/message.component';
 import { AppConfigService } from './data-providers/app-config.service';
+import { MessageGroupComponent } from './components/message-group/message-group.component';
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
@@ -50,7 +51,8 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     LandingComponent,
     AccountComponent,
     MessagesComponent,
-    MessageComponent
+    MessageComponent,    
+    MessageGroupComponent
   ],
   imports: [
     BrowserModule,

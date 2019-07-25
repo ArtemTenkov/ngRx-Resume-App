@@ -2,9 +2,24 @@
 <br />
 Unread messages: {{(unreadMessages$ | async).length}}
 <br />
-<div class="grid">
+<!-- <div class="grid">
         <ng-template ngFor let-message [ngForOf]="messages$ | async" let-i="index" >
               <app-message [message]="message" (actionsEmitted)="onChildrenActions($event)"></app-message>
             </ng-template>
 </div>
-
+ -->
+<div class="grid">
+ <div class="message-header"><h1>Messaging</h1></div>
+ <div class="sender-info"><div><b>Friend</b></div><div>Mobile 9h ago</div></div>
+ <div class="message-search"><input placeholder=" Search messages" /></div>
+ <div class="chat-history"> <ng-template ngFor let-message [ngForOf]="messages$ | async" let-i="index" >
+    <app-message [message]="message" (actionsEmitted)="onChildrenActions($event)"></app-message>
+  </ng-template></div>
+ <div class="contacts-list"><ng-template ngFor let-message [ngForOf]="messageGroups$ | async" let-i="index" >
+    <app-message-group [message]="message" (actionsEmitted)="onChildrenActions($event)"></app-message-group>
+  </ng-template></div>
+ <textarea class="chat-area" placeholder="Write a message..."></textarea>
+ <div class="message-panel"><button mat-flat-button type="submit" >
+    Send
+  </button></div>
+</div>

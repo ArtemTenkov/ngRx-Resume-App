@@ -1,8 +1,9 @@
 <mat-card [class.message-unread]="!message.read" (dblclick)="readMessage(message.id)">
-        <mat-card-header>                                
+        <mat-card-header>                                                
                 <mat-card-title>{{message.sendersName}}</mat-card-title>
                 <mat-card-subtitle>{{message.date  | date:'medium'}}</mat-card-subtitle>
               </mat-card-header>    
+              <img [src]="message.image" width="50" height="50" alt="">
               <mat-card-content>
                    <i>{{message.messageText}}</i> 
               </mat-card-content>    

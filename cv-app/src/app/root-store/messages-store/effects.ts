@@ -14,7 +14,7 @@ export class MessagesStoreEffect {
         .pipe(map(response => messageActions.GetMessagesSuccessAction({messages: response})),
         catchError(error => {
           return observableOf(messageActions.GetMessagesFailureAction({
-            error
+            error: error.message
           }));
         }))
         )

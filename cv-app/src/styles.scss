@@ -1,35 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html,
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;  
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 :root {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 ::before,
 ::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 .container {
-    max-width: 1080px;
-    margin: 0 auto;
-    min-height: 95%;
-    display:flex;
-    flex-direction: column;
-    text-overflow: hidden;
+  max-width: 1080px;
+  margin: 0 auto;
+  min-height: 95%;
+  display: flex;
+  flex-direction: column;
+  text-overflow: hidden;
 }
 
-.site-nav {    
-    display: flex;
-    padding-right: .5em;        
-    padding-left: .5em;
-    list-style-type: none;
-    justify-content: flex-end;
+.site-nav {
+  display: flex;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  list-style-type: none;
+  justify-content: flex-end;
 }
 
 .site-nav > li {
@@ -37,19 +40,18 @@ body {
   line-height: 0;
 }
 
-.site-nav > li a, .site-nav .mat-button-wrapper {  
+.site-nav > li a,
+.site-nav .mat-button-wrapper {
   text-decoration: none;
 }
 
-
-
-.site-nav > .nav-left{
+.site-nav > .nav-left {
   margin-right: auto;
-  padding-top: .5em
+  padding-top: 0.5em;
 }
 
 .tile {
-   // flex:1;
+  // flex:1;
   //padding: 1.5em;
 }
 
@@ -63,21 +65,21 @@ body {
 }
 
 .column-main {
-  flex:2;
+  flex: 2;
 }
 .column-sidebar {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}   
+}
 
 .column-sidebar > .tile + .tile {
-  margin-top:3em;
+  margin-top: 3em;
 }
 
 footer {
- width: 100%;
+  width: 100%;
   margin-top: auto;
   flex-grow: 0;
 }
@@ -99,13 +101,6 @@ main {
   flex-grow: 2;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1.5em;
-}
-
 .message-unread {
   background-color: whitesmoke;
 }
@@ -120,4 +115,100 @@ main {
 
 .site-nav > li:nth-child(1) {
   margin-right: 2em;
+}
+
+/* Messages */
+
+.grid > *:nth-child(1)  {
+  border:0.07em solid rgba(0, 0, 0, 0.12);
+}
+
+.grid > *:nth-child(2)  {
+  border-top:0.07em solid rgba(0, 0, 0, 0.12);
+  border-right:0.07em solid rgba(0, 0, 0, 0.12);
+  border-bottom:0.07em solid rgba(0, 0, 0, 0.12);
+}
+
+.grid > *:nth-child(3)  {
+  border-left:0.07em solid rgba(0, 0, 0, 0.12);
+  border-right:0.07em solid rgba(0, 0, 0, 0.12);
+  border-bottom:0.07em solid rgba(0, 0, 0, 0.12);
+}
+
+.grid > *:nth-child(4)  {
+  border-right:0.07em solid rgba(0, 0, 0, 0.12);
+  border-bottom:0.07em solid rgba(0, 0, 0, 0.12);
+}
+
+.grid > *:nth-child(5)  {
+  border-left:0.07em solid rgba(0, 0, 0, 0.12);
+  border-right:0.07em solid rgba(0, 0, 0, 0.12);
+  border-bottom:0.07em solid rgba(0, 0, 0, 0.12);
+}
+
+.grid > *:nth-child(7)  {
+  border-right:0.07em solid rgba(0, 0, 0, 0.12);
+  border-bottom:0.07em solid rgba(0, 0, 0, 0.12);
+}
+
+.header-input {
+  line-height: 1.7;
+  border-radius: 0.3em;
+  border-style: solid;
+  border-width: 0.07em;
+  padding-left: 1em;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(5, auto);  
+  font-family: "Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+}
+
+.chat-history {
+  grid-area: 2/2/4/3;
+  max-height: 25vw;
+  overflow: auto;
+}
+
+.contacts-list {
+  grid-area: 3/1/6/2;
+}
+
+.message-search > input {
+  width: 100%;
+  line-height: 2;
+}
+
+.message-panel {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-header > h1 {
+  font-size: 0.9rem;
+}
+
+.message-header {
+  padding-left: .5em;
+}
+
+.mat-card.message-unread:hover {
+  filter: brightness(97%);
+}
+
+.contact-container:hover, .mat-card:hover {
+  filter: brightness(99%);
+}
+
+.mat-card img {
+  border-radius: 50%; 
+}
+
+.contact-container {
+  display: flex;  
+  padding: 1em;
+  background-color: #fff;
 }

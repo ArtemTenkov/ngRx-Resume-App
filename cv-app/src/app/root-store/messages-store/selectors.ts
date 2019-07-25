@@ -7,6 +7,7 @@ export const getIsLoading = (state: State): any => state.isLoading;
 
 export const selectMessagesState = createFeatureSelector<State>('messages');
 export const selectAllMessages: (state: object) => Message[] = messageAdapter.getSelectors(selectMessagesState).selectAll;
+
 export const selectMessageById = (id: number) =>
 createSelector(this.selectAllMessages, (allMessages: Message[]) => {
   if (allMessages) {

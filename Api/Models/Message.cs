@@ -6,7 +6,7 @@ namespace Models
     {
         public string Id { get; set; }
         public string Text { get; set; }
-        public string SendersName { get; set; }
         public DateTime SendDate { get; set; }
+        public ChatUserDto User { get; set; }
     }
 }
