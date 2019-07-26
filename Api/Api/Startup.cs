@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using App;
+using GraphiQl;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -84,7 +85,7 @@ namespace Api
             app.UseCors(CorsPolicyName);
             app.UseAuthentication();
 
-          
+            app.UseGraphiQl("/graphql");
             app.UseMvc();
         }
     }

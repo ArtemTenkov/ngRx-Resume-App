@@ -13,8 +13,8 @@ namespace Api.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public async Task<IActionResult> Get(string userEmail)
         {
-            var messages = new MessageService().GetAllMessages(userEmail);
-            if (messages != null) return Ok(messages);
+            //var messages = new MessageService().GetAllMessages();
+            //if (messages != null) return Ok(messages);
 
             return NotFound();
         }

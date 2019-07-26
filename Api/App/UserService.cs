@@ -13,14 +13,14 @@ namespace App
  
     public class UserService
     {
-        private List<UserResponse> _users = new List<UserResponse>
+        private List<AccountResponse> _users = new List<AccountResponse>
         {
-            new UserResponse { Id = 1, FirstName = "Root", LastName = "Admin", Username = "user", Password = "password" }
+            new AccountResponse { Id = 1, FirstName = "Root", LastName = "Admin", Username = "user", Password = "password" }
         };
 
         public const string Secret = "Classified secret sting for api to generate a token";
     
-        public UserResponse Authenticate(string email, string password)
+        public AccountResponse Authenticate(string email, string password)
         {
             var userLoginReponse = _users.SingleOrDefault(x => x.Username == email && x.Password == password);
 

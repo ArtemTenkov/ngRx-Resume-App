@@ -1,6 +1,6 @@
 ﻿namespace Models
 {
-    public class UserResponse
+    public class AccountResponse
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

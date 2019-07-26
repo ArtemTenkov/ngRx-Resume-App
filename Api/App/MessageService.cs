@@ -1,82 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using Models;
 
 namespace App
 {
     public class MessageService
     {
-        private const string AllowedUser = "user";
-        private ChatUserDto AdminUser = new ChatUserDto
+        private List<UserDto> _usersAvailable = new List<UserDto>
         {
-            Id = Guid.NewGuid(),
-            UserName = "John S",
-            Role = "Administrator",
-            ProfileImage = new UserImageProvider().GetFirstUserImage
-        };
-
-        private ChatUserDto Friend = new ChatUserDto
-        {
-            Id = Guid.NewGuid(),
-            UserName = "James H",
-            Role = "Guess Who",
-            ProfileImage = new UserImageProvider().GetSecondUserImage
-        };
-
-        private ChatUserDto BestFriend = new ChatUserDto
-        {
-            Id = Guid.NewGuid(),
-            UserName = "Lebron",
-            Role = "Best Friend",
-            ProfileImage = new UserImageProvider().GetThirdUserImage
-        };
-
-        public List<Message> GetAllMessages(string userEmail)
-        {
-            var messages = new List<Message>
+            new UserDto
             {
-                new Message
+                Id = "1",
+                Email = "user",
+                UserName = "John S",
+                Role = "Administrator",
+                ProfileImage = new UserImageProvider().GetFirstUserImage,
+                Messages = new List<Message>
                 {
-                    Id = "1",
-                    SendDate = DateTime.Now.AddDays(-7),
-                    User = AdminUser,
-                    Text = "Welcome to CV App. Have fun!"
-                },
-                new Message
+                    new Message
+                    {
+                        Id = "1",
+                        SendDate = DateTime.Now.AddDays(-7),
+                        //User = AdminUser,
+                        Text = "Welcome to CV App. Have fun!"
+                    },
+                    new Message
+                    {
+                        Id = "5",
+                        SendDate = DateTime.Now.AddDays(-4),
+                        //User = AdminUser,
+                        Text = "This is not a spam. Just annoying advertisement"
+                    }
+                }
+            },
+            new UserDto
+            {
+                Id = "2",
+                Email = "james@h.com",
+                UserName = "James H",
+                Role = "Guess Who",
+                ProfileImage = new UserImageProvider().GetSecondUserImage,
+                Messages = new List<Message>
                 {
-                    Id = "2",
-                    SendDate = DateTime.Now.AddDays(-6),
-                    User = BestFriend,
-                    Text = "Hey dude. Whats up?"
-                },
-                new Message
+                    new Message
+                    {
+                        Id = "2",
+                        SendDate = DateTime.Now.AddDays(-6),
+                        //User = BestFriend,
+                        Text = "Hey dude. Whats up?"
+                    }
+                }
+            },
+            new UserDto
+            {
+                Id = "3",
+                Email = "lebron@nba.com",
+                UserName = "Lebron",
+                Role = "Best Friend",
+                ProfileImage = new UserImageProvider().GetThirdUserImage,
+                Messages = new List<Message>
                 {
-                    Id = "3",
-                    SendDate = DateTime.Now.AddDays(-5),
-                    User = Friend,
-                    Text = "Where is money bro?"
-                },
-                new Message
-                {
-                    Id = "4",
-                    SendDate = DateTime.Now.AddDays(-5),
-                    User = Friend,
-                    Text = "That was cool"
-                },
-                new Message
-                {
-                    Id = "5",
-                    SendDate = DateTime.Now.AddDays(-4),
-                    User = AdminUser,
-                    Text = "This is not a spam. Just annoying advertisement"
-                },
-            };
+                    new Message
+                    {
+                        Id = "3",
+                        SendDate = DateTime.Now.AddDays(-5),
+                        //User = Friend,
+                        Text = "Where is money bro?"
+                    },
+                    new Message
+                    {
+                        Id = "4",
+                        SendDate = DateTime.Now.AddDays(-5),
+                        //User = Friend,
+                        Text = "That was cool"
+                    },
+                }
+            }
+        };
 
-            if (userEmail == AllowedUser)
-                return messages;
+        public List<UserDto> GetUserMessages(string userEmail)
+        {
+            var user = _usersAvailable?.Where(u => u.Email == userEmail).ToList();
+            return user;
+        }
 
-            return null;
+        public List<UserDto> GetAllUserMessages()
+        {
+            return _usersAvailable.ToList();
         }
     }
 }
