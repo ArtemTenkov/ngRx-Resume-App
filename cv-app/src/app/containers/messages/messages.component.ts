@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Action, ScannedActionsSubject, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Message } from 'src/app/models/message';
+import { Account } from 'src/app/models/account';
 import {
   RootStoreState,
+  MessageUserSelectors,
   MessagesSelectors,
   MessagesActions} from '../../root-store';
-import { map, distinct } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ofType } from '@ngrx/effects';
+import { Message } from 'src/app/models/message';
 
 @Component({
   selector: 'app-messages',
@@ -16,34 +17,30 @@ import { ofType } from '@ngrx/effects';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit {
-  public messages$: Observable<Message[]>;
-  public unreadMessages$: Observable<Message[]>;
-  public messageGroups$: Observable<Message[]>;
+  public users$: Observable<Account[]>;
+
+   public messages$: Observable<Message[]>;
+   public selectedUser: Observable<Account>;
+   public unreadMessages$: Observable<Message[]>;
 
   constructor(private store$: Store<RootStoreState.RootState>,
               actions$: ScannedActionsSubject,
               private snackBar: MatSnackBar) {
-    this.store$.dispatch(MessagesActions.GetMessagesRequestAction({ userId: 'user'}));
+   this.store$.dispatch(MessagesActions.GetFriendsListRequestAction());
+   actions$.pipe(ofType(MessagesActions.GetMessagesFailureAction)).subscribe(this.errorHandler);
+   actions$.pipe(ofType(MessagesActions.GetFriendsListFailureAction)).subscribe(this.errorHandler);
+  }
 
-    actions$.pipe(ofType(MessagesActions.GetMessagesFailureAction))
-      .subscribe(errorAction => {
-        snackBar.open(errorAction.error,
-          'Unknown error', {
-            duration: 2000
-          });
+  private errorHandler(errorAction) {
+    this.snackBar.open(errorAction.error,
+      'Unknown error', {
+        duration: 2000
       });
   }
 
-  private removeDuplicates(myArr, prop) {
-    return myArr.filter((obj, pos, arr) => {
-        return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
-    });
-  }
-
   ngOnInit() {
+    this.users$ = this.store$.select(MessageUserSelectors.selectAllUsers);
     this.messages$ = this.store$.select(MessagesSelectors.selectAllMessages);
-    this.unreadMessages$ = this.messages$.pipe(map(mess => mess.filter(m => !m.read)));
-    this.messageGroups$ = this.messages$.pipe(map(mess => this.removeDuplicates(mess, 'sendersName')));
   }
 
   onChildrenActions($event: Action[]) {

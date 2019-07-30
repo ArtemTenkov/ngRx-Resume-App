@@ -1,4 +1,4 @@
-<mat-card [class.message-unread]="!message.read" (dblclick)="readMessage(message.id)">
+<mat-card>
         <mat-card-header>                                                
                 <mat-card-title>{{message.sendersName}}</mat-card-title>
                 <mat-card-subtitle>{{message.date  | date:'medium'}}</mat-card-subtitle>

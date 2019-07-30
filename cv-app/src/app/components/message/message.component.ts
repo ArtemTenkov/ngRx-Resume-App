@@ -13,18 +13,9 @@ import { Store, Action } from '@ngrx/store';
 export class MessageComponent implements OnInit {
   @Input()
   public message: Message;
-  @Output() 
+  @Output()
   actionsEmitted: EventEmitter<Action[]> = new EventEmitter();
-  
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  readMessage(messageId: string) {
-    this.actionsEmitted.emit([MessagesActions.MarkMessageReadAction({ message: {id: messageId, changes: {
-      ...this.message,
-      read: true
-    }}})]);
-  }
+  ngOnInit() {}
 }

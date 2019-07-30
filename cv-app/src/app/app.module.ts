@@ -34,6 +34,7 @@ import { MessagesComponent } from './containers/messages/messages.component';
 import { MessageComponent } from './components/message/message.component';
 import { AppConfigService } from './data-providers/app-config.service';
 import { MessageGroupComponent } from './components/message-group/message-group.component';
+import { ChatUserComponent } from './components/chat-user/chat-user.component';
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
@@ -52,7 +53,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     AccountComponent,
     MessagesComponent,
     MessageComponent,    
-    MessageGroupComponent
+    MessageGroupComponent, ChatUserComponent
   ],
   imports: [
     BrowserModule,

@@ -12,5 +12,6 @@ export interface State {
 export interface RootState extends State {
   authentication: AuthenticationStoreState.State;
   account: AccountStoreState.State;
-  messages: MessagesStoreState.State;
+  messages: MessagesStoreState.MessageState;
+  userList: MessagesStoreState.UserListState;
 }

@@ -1,11 +1,11 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Message } from '../../models/message';
-import { messageAdapter, State } from './state';
+import { messageAdapter, MessageState } from './state';
 
-export const getError = (state: State): any => state.error;
-export const getIsLoading = (state: State): any => state.isLoading;
+export const getError = (state: MessageState): any => state.error;
+export const getIsLoading = (state: MessageState): any => state.isLoading;
 
-export const selectMessagesState = createFeatureSelector<State>('messages');
+export const selectMessagesState = createFeatureSelector<MessageState>('messages');
 export const selectAllMessages: (state: object) => Message[] = messageAdapter.getSelectors(selectMessagesState).selectAll;
 
 export const selectMessageById = (id: number) =>

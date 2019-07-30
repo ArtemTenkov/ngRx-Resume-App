@@ -1,6 +1,7 @@
 {
     "appTitle": "CV App",
     "apiUrl": "https://localhost:44341/api/",
+    "graphQlUrl": "https://localhost:44341/graphql",
     "appSetting": {
         "someyKey": "someValue"
     }

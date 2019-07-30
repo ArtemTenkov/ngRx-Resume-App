@@ -1,5 +1,6 @@
 import * as MessagesActions from './actions';
-import * as MessagesSelectors from './selectors';
+import * as MessagesSelectors from './messages-selectors';
+import * as MessageUserSelectors from './message-user-selectors';
 import * as MessagesStoreState from './state';
 
 export {
@@ -9,5 +10,6 @@ export {
 export {
     MessagesActions,
     MessagesSelectors,
+    MessageUserSelectors,
     MessagesStoreState
 };

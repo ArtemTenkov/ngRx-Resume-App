@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './reducer';
+import { reducer as messageReducer } from './message-reducer';
+import { reducer as usersReducer } from './user-messages.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MessagesStoreEffect } from './effects';
 
@@ -9,7 +10,8 @@ import { MessagesStoreEffect } from './effects';
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature('messages', reducer),
+    StoreModule.forFeature('messages', messageReducer),
+    StoreModule.forFeature('users', usersReducer),
     EffectsModule.forFeature([MessagesStoreEffect])
   ],
   providers: [MessagesStoreEffect]
