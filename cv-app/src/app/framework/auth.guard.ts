@@ -11,7 +11,7 @@ import { CookieStorageService } from '../data-providers/cookie-storage.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private store$: Store<RootStoreState.RootState>, private router: Router, private cookieStorage: CookieStorageService) {}
+  constructor(private router: Router, private cookieStorage: CookieStorageService) {}
 
   canActivate() {
     return this.checkStoreAuthentication().pipe(

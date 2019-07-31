@@ -11,6 +11,7 @@ import { CustomRouterStateSerializer } from './models/root-url';
 import { AuthenticationComponent } from './containers/login/authentication.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -69,6 +70,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     MatSidenavModule,
     MatSnackBarModule,
     MatCardModule,
+    MatProgressSpinnerModule,
 
     BrowserAnimationsModule,
     HttpClientModule,

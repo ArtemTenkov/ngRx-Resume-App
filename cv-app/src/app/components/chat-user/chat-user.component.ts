@@ -4,6 +4,7 @@ import { Action } from '@ngrx/store';
 import {
   MessagesActions,
 } from '../../root-store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat-user',
@@ -16,13 +17,13 @@ export class ChatUserComponent implements OnInit {
   @Output()
   actionsEmitted: EventEmitter<Action[]> = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   selectUser() {
-    this.actionsEmitted.emit([MessagesActions.GetMessagesRequestAction({userId: this.user.email})]);
+    this.router.navigate(['/messages/' + this.user.email]);
   }
 
 }

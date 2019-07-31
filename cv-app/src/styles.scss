@@ -165,21 +165,26 @@ main {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(5, auto);  
   font-family: "Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+  height: 30vw;
+  overflow: auto;
 }
 
 .chat-history {
   grid-area: 2/2/4/3;
   max-height: 25vw;
   overflow: auto;
+  height: 100%;
 }
 
 .contacts-list {
   grid-area: 3/1/6/2;
 }
 
+
+
 .message-search > input {
   width: 100%;
-  line-height: 2;
+  height: 100%;
 }
 
 .message-panel {
@@ -193,6 +198,7 @@ main {
 
 .message-header {
   padding-left: .5em;
+  max-height: 5vw;
 }
 
 .mat-card.message-unread:hover {
@@ -201,6 +207,7 @@ main {
 
 .contact-container:hover, .mat-card:hover {
   filter: brightness(99%);
+  cursor: pointer;
 }
 
 .mat-card img {

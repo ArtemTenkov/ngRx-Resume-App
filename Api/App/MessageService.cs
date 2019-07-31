@@ -12,7 +12,7 @@ namespace App
             new UserDto
             {
                 Id = "1",
-                Email = "user",
+                Email = "user@mail.com",
                 UserName = "John S",
                 Role = "Administrator",
                 ProfileImage = new UserImageProvider().GetFirstUserImage,

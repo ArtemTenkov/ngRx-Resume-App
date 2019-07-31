@@ -22,6 +22,12 @@ data: { title: 'Sign In' } },
   data: { title: 'Inbox' }
 },
 {
+  path: 'messages/:email',
+  component: MessagesComponent,
+  canActivate: [AuthGuard],
+  data: { title: 'Inbox' }
+},
+{
   path: 'account/:email',
   component: AccountComponent,
   canActivate: [AuthGuard],
